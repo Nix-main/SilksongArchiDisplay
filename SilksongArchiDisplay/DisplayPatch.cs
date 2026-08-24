@@ -11,7 +11,6 @@ public class DisplayPatch
     [HarmonyPrefix]
     public static bool AddItem()
     {
-        if (Assembly.GetExecutingAssembly() != typeof(DisplayPatch).Assembly) return false;
-        return true;
+        return Assembly.GetExecutingAssembly() == typeof(SilksongArchiDisplayPlugin).Assembly;
     }
 }
