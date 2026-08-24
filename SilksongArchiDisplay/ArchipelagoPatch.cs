@@ -1,5 +1,6 @@
 ﻿using Archipelago.MultiClient.Net.Models;
 using HarmonyLib;
+using RecentItemsDisplay;
 using SilksongRandomizer;
 using Archi = SilksongRandomizer.Archipelago;
 
@@ -15,7 +16,7 @@ public class ArchipelagoPatch
     {
         __instance.OnItemSent += (item, _) =>
         {
-            SilksongArchiDisplayPlugin.Add.Invoke(null, [RandomizerPlugin.Instance.FillerIcon, $"{item.Split(" to ")[0]}\nto {item.Split(" to ")[1]}", null]);
+            Display.AddItem(RandomizerPlugin.Instance.FillerIcon, $"{item.Split(" to ")[0].Replace("_", " ")}\nto {item.Split(" to ")[1]}");
         };
     }
     
@@ -24,6 +25,6 @@ public class ArchipelagoPatch
     {
         string name = item.Player.Name == "Server" ? "Start" : item.Player.Name;
         if (raiseEvent)
-            SilksongArchiDisplayPlugin.Add.Invoke(null, [RandomizerPlugin.Instance.MapCheckIcon,$"{__instance.GetItemName(item)}\nfrom {name}", null]);
+            Display.AddItem(RandomizerPlugin.Instance.MapCheckIcon,$"{__instance.GetItemName(item).Replace("_", " ")}\nfrom {name}");
     }
 }

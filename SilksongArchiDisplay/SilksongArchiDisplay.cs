@@ -14,14 +14,8 @@ namespace SilksongArchiDisplay;
 [BepInDependency(RandomizerPlugin.PluginGuid)]
 public partial class SilksongArchiDisplayPlugin : BaseUnityPlugin
 {
-    public new static ManualLogSource Logger = null!;
-    public static Type Display = null!;
-    public static MethodInfo Add = null!;
     void Awake()
     {
-        Logger = base.Logger;
-        Display = typeof(RecentItemsDisplayPlugin).Assembly.GetType("RecentItemsDisplay.Display");
-        Add = AccessTools.DeclaredMethod(Display, "AddItem");
         new Harmony(Id).PatchAll();
     }
 }

@@ -1,18 +1,15 @@
 ﻿using System.Reflection;
 using HarmonyLib;
-using UnityEngine;
+using RecentItemsDisplay;
 
 namespace SilksongArchiDisplay;
 
 [HarmonyPatch]
 public class DisplayPatch
 {
-    static MethodBase TargetMethod()
-    {
-        return SilksongArchiDisplayPlugin.Add;
-    }
-
-    static bool Prefix()
+    [HarmonyPatch(typeof(Display), nameof(Display.AddItem))]
+    [HarmonyPrefix]
+    public static bool AddItem()
     {
         if (Assembly.GetExecutingAssembly() != typeof(DisplayPatch).Assembly) return false;
         return true;

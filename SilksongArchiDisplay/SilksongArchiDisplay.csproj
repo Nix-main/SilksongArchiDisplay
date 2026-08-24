@@ -34,7 +34,7 @@
     <ItemGroup>
         <EmbeddedResource Include="Resources\**\*.*" />
         <Reference Include="$(Managed)\*.dll" Publicize="true"/>
-        <Reference Include="RecentItemsDisplay">
+        <Reference Include="RecentItemsDisplay" Publicize="true">
           <HintPath>..\..\..\Downloads\flibber-RecentItemsDisplay-0.2.0\RecentItemsDisplay.dll</HintPath>
         </Reference>
         <Reference Include="SilksongRandomizer" Publicize="true">
