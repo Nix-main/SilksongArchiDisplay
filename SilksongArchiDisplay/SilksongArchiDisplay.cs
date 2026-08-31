@@ -17,5 +17,7 @@ public partial class SilksongArchiDisplayPlugin : BaseUnityPlugin
     void Awake()
     {
         new Harmony(Id).PatchAll();
+        VanillaItems.mgr.Dispose();
+        VanillaItems.fsmMgr.Dispose();
     }
 }
