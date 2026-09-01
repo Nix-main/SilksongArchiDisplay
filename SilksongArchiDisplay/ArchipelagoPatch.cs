@@ -21,11 +21,10 @@ public class ArchipelagoPatch
     }
     
     [HarmonyPatch(typeof(Archi), nameof(Archi.MarkItemUnlocked)), HarmonyPrefix]
-    public static void MarkItemUnlocked(Archi __instance, ItemInfo item, bool raiseEvent)
+    public static void MarkItemUnlocked(Archi __instance, ItemInfo item)
     {
         string name = item.Player.Name == "Server" ? "Start" : item.Player.Name;
-        if (raiseEvent)
-            // Utilize the queue system from SilksongArchiDisplay to queue the items instead of directly adding them.
-            SilksongArchiDisplayPlugin.QueueItem(RandomizerPlugin.Instance.MapCheckIcon,$"{__instance.GetItemName(item).Replace("_", " ")}\nfrom {name}");
+        // Utilize the queue system from SilksongArchiDisplay to queue the items instead of directly adding them.
+        SilksongArchiDisplayPlugin.QueueItem(RandomizerPlugin.Instance.MapCheckIcon,$"{__instance.GetItemName(item).Replace("_", " ")}\nfrom {name}");
     }
 }
