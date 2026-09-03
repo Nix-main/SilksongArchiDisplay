@@ -36,10 +36,10 @@
         <EmbeddedResource Include="Resources\**\*.*" />
         <Reference Include="$(Managed)\*.dll" Publicize="true"/>
         <Reference Include="RecentItemsDisplay" Publicize="true">
-          <HintPath>..\..\..\Downloads\flibber-RecentItemsDisplay-0.2.0\RecentItemsDisplay.dll</HintPath>
+          <HintPath>./RecentItemsDisplay.dll</HintPath>
         </Reference>
         <Reference Include="SilksongRandomizer" Publicize="true">
-          <HintPath>..\..\..\Downloads\Silksong.Randomizer.0.4.3\Silksong Randomizer 0.4.3\PUT IN SILKSONG FOLDER\BepInEx\plugins\SilksongRandomizer\SilksongRandomizer.dll</HintPath>
+          <HintPath>./SilksongRandomizer.dll</HintPath>
         </Reference>
     </ItemGroup>
 
